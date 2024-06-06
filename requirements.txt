@@ -8,5 +8,5 @@ itsdangerous==2.2.0
 Jinja2==3.1.4
 MarkupSafe==2.1.5
 packaging==24.0
-pymongo==4.7.3
+redis==5.0.5
 Werkzeug==3.0.3
