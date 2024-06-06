@@ -9,7 +9,6 @@ app.secret_key = os.environ.get("SECRET_KEY", "ozempicisruiningeverything")
 # Set up Redis client
 uri = os.environ.get("REDIS_URL")
 redis_client = redis.from_url(uri)
-db = client['TeamNames0']
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
