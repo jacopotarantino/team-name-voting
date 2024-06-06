@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welcome, {{ session['first_name'] }}</h1>
-        <h2>Vote for your favorite team names</h2>
+        <h1>Welcome, {{ session['first_name'] }}!</h1>
+        <p>Vote for your favorite team names here. You have 3 votes total. Suggest any new names at the bottom of the page.</p>
         <table>
             <thead>
                 <tr>
@@ -18,16 +18,14 @@
                 </tr>
             </thead>
             <tbody>
-                {% for team_name in team_names %}
+                {% for name, score in team_names %}
                     <tr>
-                        <td>{{ team_name['name'] }}</td>
-                        <td>{{ team_name['score'] }}</td>
+                        <td>{{ name }}</td>
+                        <td>{{ score }}</td>
                         <td>
-                            {% if team_name['name'] not in user_votes %}
-                                <form method="post" action="/vote" style="display:inline;">
-                                    <button type="submit" name="vote" value="{{ team_name['name'] }}" {% if user_votes|length >= 3 %}disabled{% endif %}>Vote</button>
-                                </form>
-                            {% endif %}
+                            <form method="post" action="/vote" style="display:inline;">
+                                <button type="submit" name="vote" value="{{ name }}" {% if user_votes|length >= 3 %}disabled{% endif %}>Vote</button>
+                            </form>
                         </td>
                     </tr>
                 {% endfor %}
@@ -42,6 +40,8 @@
             </form>
         </div>
     </div>
+
+    <div class="footer">Brought to you with ❤️ by <a href="https://jack.ofspades.com">Jack</a>.</div>
 </body>
 </html>
 

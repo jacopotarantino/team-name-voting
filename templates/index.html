@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="container">
+    <div class="container login">
         <h1>Login</h1>
         <form method="post" action="/">
-            <label for="first_name">First Name:</label>
+            <label for="first_name">Name:</label>
             <input type="text" id="first_name" name="first_name" required>
             <button type="submit">Login</button>
         </form>
     </div>
+
+    <div class="footer">Brought to you with ❤️ by <a href="https://jack.ofspades.com">Jack</a>.</div>
 </body>
 </html>
 

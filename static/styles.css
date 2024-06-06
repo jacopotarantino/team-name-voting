@@ -69,3 +69,17 @@ input[type="text"] {
 .new-suggestion button {
     margin-top: 1rem;
 }
+
+.footer {
+    position: absolute;
+    margin: 0;
+    bottom: 5px;
+}
+
+.footer a {
+    color: #FF5555;
+}
+
+.login button {
+    margin-top: 1rem;
+}

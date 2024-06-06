@@ -37,7 +37,7 @@ def vote():
 
         else:
             team_name = request.form['vote']
-            if len(user_votes) < 3 and team_name not in user_votes:
+            if len(user_votes) < 3:
                 redis_client.incr(f'team_name:{team_name}')
                 user_votes.append(team_name)
                 redis_client.set(f'user_votes:{first_name}', json.dumps(user_votes))
