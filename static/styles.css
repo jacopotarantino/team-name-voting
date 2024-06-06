@@ -1,0 +1,71 @@
+body {
+    background-color: #660d40;
+    font-family: Arial, sans-serif;
+    color: #f7f3e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #f7f3e6;
+    color: #660d40;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    margin: auto 10px;
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: none;
+    text-align: center;
+}
+
+form {
+    margin: 10px 0;
+}
+
+button {
+    background-color: #660d40;
+    color: #f7f3e6;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 22px); /* Subtract padding and border */
+}
+
+.new-suggestion {
+    margin-top: 2rem;
+}
+
+.new-suggestion button {
+    margin-top: 1rem;
+}

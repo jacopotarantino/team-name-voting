@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote for Team Names</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ session['first_name'] }}</h1>
+        <h2>Vote for your favorite team names</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Team Name</th>
+                    <th>Current Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for team_name in team_names %}
+                    <tr>
+                        <td>{{ team_name['name'] }}</td>
+                        <td>{{ team_name['score'] }}</td>
+                        <td>
+                            {% if team_name['name'] not in user_votes %}
+                                <form method="post" action="/vote" style="display:inline;">
+                                    <button type="submit" name="vote" value="{{ team_name['name'] }}" {% if user_votes|length >= 3 %}disabled{% endif %}>Vote</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="new-suggestion">
+            <h2>Suggest a New Team Name</h2>
+            <form method="post" action="/vote">
+                <input type="text" name="team_name" required>
+                <button type="submit">Suggest</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
