@@ -42,7 +42,11 @@ def vote():
                 user_votes.append(team_name)
                 redis_client.set(f'user_votes:{first_name}', json.dumps(user_votes))
 
+    def sort_second(val):
+        return val[1]
+
     team_names = [(key.split(':')[1], redis_client.get(key)) for key in redis_client.keys('team_name:*')]
+    team_names.sort(key=sort_second, reverse=True)
 
     return render_template('vote.html', team_names=team_names, user_votes=user_votes)
 
