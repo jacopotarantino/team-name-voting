@@ -82,3 +82,18 @@ input[type="text"] {
 .login button {
     margin-top: 1rem;
 }
+
+/* New additions */
+form.login input[type="text"] {
+    margin-bottom: 5px;
+}
+
+hr {
+    border: 1px solid #ccc;
+    margin: 3rem 0 6rem;
+}
+
+.suggestions {
+    list-style-type: none;
+    padding: 0;
+}

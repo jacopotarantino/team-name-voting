@@ -29,7 +29,7 @@ def index():
             messages=[
                 {
                     "role": "user",
-                    "content": "Generate 3 creative and funny team names, each being a 2-8 word (preferably 3-5 words) pun related to this last week's news.",
+                    "content": "Look up this last week's top news topics and generate 3 puns based on those topics. They should be 3-6 words and snappy",
                 }
             ],
         )
