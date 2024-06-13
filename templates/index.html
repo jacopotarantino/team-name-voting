@@ -8,14 +8,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Login</h1>
-        <form class="login" method="post" action="/">
-            <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name" required>
-            <button type="submit">Login</button>
-        </form>
+        {% if user %}
+            <h1>Welcome, {{ user['given_name'] }}</h1>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <h1>Login</h1>
+            <a href="{{ url_for('login') }}">Login with Google</a>
+        {% endif %}
         <hr>
-        <h2>Food for thought?</h2>
+        <h2>Suggested Team Names</h2>
         <ul class="suggestions">
             {% for suggestion in suggestions %}
                 <li>{{ suggestion }}</li>
