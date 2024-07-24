@@ -13,7 +13,7 @@ redis_client = redis.from_url(uri, decode_responses=True)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        first_name = request.form['first_name']
+        first_name = request.form['first_name'].replace(':', '\uFF1A')
         session['first_name'] = first_name
         if not redis_client.exists(f'user_votes:{first_name}'):
             redis_client.set(f'user_votes:{first_name}', json.dumps([]))
@@ -31,12 +31,12 @@ def vote():
 
     if request.method == 'POST':
         if 'team_name' in request.form:
-            team_name = request.form['team_name']
+            team_name = request.form['team_name'].replace(':', '\uFF1A')
             if not redis_client.exists(f'team_name:{team_name}'):
                 redis_client.set(f'team_name:{team_name}', 0)
 
         else:
-            team_name = request.form['vote']
+            team_name = request.form['vote'].replace(':', '\uFF1A')
             if len(user_votes) < 3:
                 redis_client.incr(f'team_name:{team_name}')
                 user_votes.append(team_name)
