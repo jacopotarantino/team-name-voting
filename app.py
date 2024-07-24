@@ -41,7 +41,7 @@ def generate_team_name_suggestions():
         messages=[
             {
                 "role": "user",
-                "content": "Generate 3 creative and funny team names, each being a 2-8 word (preferably 3-5 words) pun related to this last week's news."
+                "content": "Check the US news for the latest headlines, then generate 3 creative and funny team names, each being a 2-8 word (preferably 3-5 words) pun related to this last week's news."
             }
         ]
     )
